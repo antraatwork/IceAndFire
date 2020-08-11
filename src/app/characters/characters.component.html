@@ -46,9 +46,7 @@
           <div class="card-header">
 
             <p *ngIf="character.aliases != undefined && character.aliases.length>0">Aliases
-              <mat-icon class="arrow">forward</mat-icon>
-
-              <span *ngFor="let item of character.aliases;let first = first;let last = last">
+               <span *ngFor="let item of character.aliases;let first = first;let last = last">
                 <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
 
                 </span>
