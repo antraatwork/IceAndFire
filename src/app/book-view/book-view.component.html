@@ -1,0 +1,119 @@
+<div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <!-- navbar -->
+    <a class="navbar-brand">Ice And Fire</a>
+    <!-- App name-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+      <!-- toggler icon -->
+    </button>
+    <!-- toggler button -->
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <!-- home component-->
+          <a class="nav-link" [routerLink]="['/home']">Books<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <!-- characters component-->
+          <a class="nav-link" [routerLink]="['/characters']">Characters</a>
+        </li>
+        <li class="nav-item">
+          <!-- houses component -->
+          <a class="nav-link" [routerLink]="['/houses']">Houses</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <div class="gallery" style="text-align: center;">
+
+    <img src="../../assets/images/dragon.jpg" alt="IceAndFire">
+    <!-- image  -->
+  </div>
+
+  <div class="container">
+    <div class="row" style="text-align: left;" *ngIf="currentBook">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-header">
+            <!-- if the name of the currentBook is not undefined and its length is greater than 0 then Book name is displayed -->
+            
+            <p *ngIf="currentBook.name != undefined && currentBook.name.length>0">Name<mat-icon class="arrow">forward
+              </mat-icon>{{currentBook.name | uppercase}}</p>
+            <!-- book name is in uppercase -->
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+
+              <p *ngIf="currentBook.authors != undefined && currentBook.authors.length>0">Authors<mat-icon
+                  class="arrow">forward</mat-icon>
+                <!--to dispay all authors of current Book   -->
+                <span *ngFor="let item of currentBook.authors;let first = first;let last = last">
+                  <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
+                    <!-- if the item is not last then comma will appear after it,if the item is last then the comma will not appear after it -->
+                  </span>
+                  <!-- else  -->
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+
+
+              <p *ngIf="currentBook.country != undefined && currentBook.country.length>0">Country<mat-icon
+                  class="arrow">forward</mat-icon>{{currentBook.country}}</p>
+
+              <p *ngIf="currentBook.isbn != undefined && currentBook.isbn.length>0">ISBN<mat-icon class="arrow">
+                  forward</mat-icon>{{currentBook.isbn}}</p>
+
+              <p *ngIf="currentBook.mediaType != undefined && currentBook.mediaType.length>0">Media Type<mat-icon
+                  class="arrow">forward</mat-icon>{{currentBook.mediaType}}</p>
+
+              <p *ngIf="currentBook.numberOfPages != undefined && currentBook.numberOfPages">Number of pages<mat-icon
+                  class="arrow">forward</mat-icon>{{currentBook.numberOfPages}}</p>
+
+              <p *ngIf="currentBook.characters != undefined && currentBook.publisher.length>0">Publisher<mat-icon
+                  class="arrow">forward</mat-icon>{{currentBook.publisher}}</p>
+
+              <p *ngIf="currentBook.characters != undefined && currentBook.released.length>0">Released<mat-icon
+                  class="arrow">forward</mat-icon>{{currentBook.released|date}}</p>
+
+
+            </div>
+            <div class="card-footer row">
+              <div class="col-md-6">
+                <!-- back button -->
+
+                <a class="btn flex-container" (click)="goToBackPage()">
+                  <mat-icon>arrow_back_ios</mat-icon><b>Back</b>
+                </a>
+
+              </div>
+              <div class="col-md-6">
+
+                <!-- go to homepage button -->
+                <a class="btn flex-container" (click)="goToHomePage()">
+                  <mat-icon>home</mat-icon><b>Go to Home Page</b>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- loader-->
+<ng-http-loader [backdrop]="false" [backgroundColor]="'#ff0000'" [debounceDelay]="100" [extraDuration]="300"
+  [minDuration]="300" [opacity]=".6" [spinner]="spinkit.skWave">
+</ng-http-loader>

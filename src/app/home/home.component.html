@@ -1,0 +1,105 @@
+<div class="homepage">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <!-- navbar -->
+    <a class="navbar-brand">Ice And Fire</a>
+    <!-- App name-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+      <!-- toggler icon -->
+    </button>
+    <!-- toggler button -->
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ">
+
+        <li class="nav-item active">
+          <!-- active component is home component-->
+          <a class="nav-link" [routerLink]="['/home']">Books<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <!-- characters component-->
+          <a class="nav-link" [routerLink]="['/characters']">Characters</a>
+        </li>
+        <li class="nav-item">
+          <!-- houses component -->
+          <a class="nav-link" [routerLink]="['/houses']">Houses</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <div class="gallery" style="text-align: center;">
+
+    <img src="../../assets/images/dragon.jpg" alt="IceAndFire">
+    <!-- image  -->
+  </div>
+
+
+  <div class="container">
+    <div class="row" style="text-align: center;" *ngIf="allBooks">
+      <div *ngFor="let book of allBooks |orderBy:'name' |paginate: {itemsPerPage: 5,currentPage: p }" class="col-md-6">
+        <!-- to display all cards of books and arrange the cards acc. to alphabatically order of book names -->
+        <div class="card">
+          <div class="card-header">
+
+            <p><span *ngIf=" book.name != undefined && book.name.length >0">{{book.name | uppercase }}</span>
+            </p>
+            
+            <!-- book name of the specific book -->
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+
+              <p *ngIf="book.authors != undefined && book.authors.length>0">Authors<mat-icon class="arrow">forward
+                </mat-icon>
+                <!--to dispay all authors of current Book   -->
+                <span *ngFor="let item of book.authors;let first = first;let last = last">
+                  <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
+                    <!-- if the item is not last then comma will appear after it,if the item is last then the comma will not appear after it -->
+                  </span>
+                  <!-- else  -->
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <!-- author name of the specific book -->
+              <p>ISBN : <span *ngIf=" book.isbn != undefined && book.isbn.length>0 ">{{book.isbn}} </span>
+              </p>
+
+              <!-- isbn of the specific book   -->
+              <p>Publisher : <span
+                  *ngIf="book.publisher != undefined && book.publisher.length>0">{{book.publisher}}</span></p>
+              <!-- publisher name of the specific book -->
+
+            </div>
+
+            <div class="card-footer">
+              <a class="btn" [routerLink]="['/bookview',book.url]">View</a>
+              <!-- View button to view all the details of the specific book  -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+  <!-- for pagination purpose -->
+  <div class="page" style="text-align:center">
+    <pagination-controls class="my-pagination" (pageChange)="p =$event"></pagination-controls>
+  </div>
+
+
+</div>
+<!-- for the loader  -->
+<ng-http-loader [backdrop]="false" [backgroundColor]="'#ff0000'" [debounceDelay]="100" [extraDuration]="300"
+  [minDuration]="300" [opacity]=".6" [spinner]="spinkit.skWave">
+</ng-http-loader>

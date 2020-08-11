@@ -1,0 +1,129 @@
+<div style="text-align: center;">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+
+    <a class="navbar-brand">Ice And Fire</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item ">
+
+          <a class="nav-link" [routerLink]="['/home']">Books</a>
+        </li>
+        <li class="nav-item">
+
+          <a class="nav-link active" [routerLink]="['/characters']">Characters<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/houses']">Houses</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="gallery" style="text-align: center;">
+
+    <img src="../../assets/images/dragon.jpg" alt="IceAndFire">
+
+  </div>
+
+  <div class="container">
+
+    <div class="row" style="text-align: left;" *ngIf="currentCharacter">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+
+            <p *ngIf="currentCharacter.aliases != undefined && currentCharacter.aliases.length>0">Aliases
+              <mat-icon class="arrow">forward</mat-icon>
+
+              <span *ngFor="let item of currentCharacter.aliases;let first = first;let last = last">
+                <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
+
+                </span>
+                <ng-template #elseblock> -- </ng-template>
+              </span>
+            </p>
+
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <p *ngIf="currentCharacter.name != undefined && currentCharacter.name.length>0">Name <mat-icon
+                  class="arrow">forward</mat-icon>{{currentCharacter.name }}</p>
+
+
+              <p *ngIf="currentCharacter.culture != undefined && currentCharacter.culture.length>0">Culture <mat-icon
+                  class="arrow">forward</mat-icon>{{currentCharacter.culture}}</p>
+
+              <p *ngIf="currentCharacter.died != undefined && currentCharacter.died.length>0">Died <mat-icon
+                  class="arrow">forward</mat-icon>{{currentCharacter.died}}</p>
+
+              <p *ngIf="currentCharacter.gender != undefined && currentCharacter.gender.length>0">Gender <mat-icon
+                  class="arrow">forward</mat-icon>{{currentCharacter.gender}}</p>
+
+
+              <p *ngIf="currentCharacter.playedBy != undefined && currentCharacter.playedBy.length>0">Played By
+                <mat-icon class="arrow">forward</mat-icon>
+                <span *ngFor="let item of currentCharacter.playedBy;let first = first;let last = last">
+                  <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
+
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+
+              <p *ngIf="currentCharacter.titles != undefined && currentCharacter.titles.length>0">Titles <mat-icon
+                  class="arrow">forward</mat-icon>
+                <span *ngFor="let title of currentCharacter.titles;let first = first;let last = last">
+                  <span *ngIf="title ; else elseblock">{{title}}{{last ? ' ' : ' ,'}}
+
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+              <p *ngIf="currentCharacter.tvSeries != undefined && currentCharacter.tvSeries.length>0">TV Series
+                <mat-icon class="arrow">forward</mat-icon>
+                <span *ngFor="let serie of currentCharacter.tvSeries;let first = first;let last = last">
+                  <span *ngIf="serie; else elseblock">{{serie}}{{last ? ' ' : ' ,'}}
+
+                  </span>
+                  <ng-template #elseblock> -- </ng-template>
+                </span>
+              </p>
+
+
+            </div>
+            <div class="card-footer row">
+              <div class="col-md-6">
+                <a class="btn flex-container" (click)="goToBackPage()">
+                  <mat-icon>arrow_back_ios</mat-icon>Back
+                </a>
+              </div>
+              <div class="col-md-6">
+                <a class="btn flex-container" (click)="goToHomePage()">
+                  <mat-icon>home</mat-icon>Go to Home Page
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<ng-http-loader [backdrop]="false" [backgroundColor]="'#ff0000'" [debounceDelay]="100" [extraDuration]="300"
+  [minDuration]="300" [opacity]=".6" [spinner]="spinkit.skWave">
+</ng-http-loader>

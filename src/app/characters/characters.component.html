@@ -1,0 +1,92 @@
+<div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <!-- navbar -->
+    <a class="navbar-brand">Ice And Fire</a>
+    <!-- App name-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+      <!-- toggler icon -->
+    </button>
+    <!-- toggler button -->
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item ">
+          <!-- home component-->
+          <a class="nav-link" [routerLink]="['/home']">Books</a>
+        </li>
+        <li class="nav-item">
+          <!-- characters component is active -->
+          <a class="nav-link active" [routerLink]="['/characters']">Characters<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <!-- characters component is active -->
+          <a class="nav-link" [routerLink]="['/houses']">Houses</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+  <div class="gallery" style="text-align: center;">
+
+    <img src="../../assets/images/dragon.jpg" alt="IceAndFire">
+    <!-- image  -->
+  </div>
+
+  <div class="container">
+    <div class="row" style="text-align: center;" *ngIf="allCharacters">
+      <div *ngFor="let character of allCharacters | orderBy:'name' |paginate: {itemsPerPage: 5,currentPage: p }"
+        class="col-md-6">
+        <!-- to display all cards of characters and arrange the cards acc. to alphabatical order of characters' aliases -->
+        <div class="card">
+          <div class="card-header">
+
+            <p *ngIf="character.aliases != undefined && character.aliases.length>0">Aliases
+              <mat-icon class="arrow">forward</mat-icon>
+
+              <span *ngFor="let item of character.aliases;let first = first;let last = last">
+                <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
+
+                </span>
+                <ng-template #elseblock> -- </ng-template>
+              </span>
+            </p>
+
+          </div>
+
+          <div class="card-body">
+            <div class="card-text">
+              <!-- gender of the character -->
+              <p>Gender :
+                <span *ngIf="character.gender"> {{character.gender}}</span>
+              </p>
+
+
+            </div>
+            <div class="card-footer">
+              
+              <a [routerLink]="['/characterview',character.url]" class="btn ">View</a>
+              <!-- View button to view all the details of the specific character -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- for pagination purpose  -->
+  <div class="page" style="text-align:center">
+    <pagination-controls class="my-pagination" (pageChange)="p =$event"></pagination-controls>
+  </div>
+
+</div>
+<!-- for the loader -->
+<ng-http-loader [backdrop]="false" [backgroundColor]="'#ff0000'" [debounceDelay]="100" [extraDuration]="300"
+  [minDuration]="300" [opacity]=".6" [spinner]="spinkit.skWave">
+</ng-http-loader>
