@@ -42,8 +42,7 @@
         <div class="card">
           <div class="card-header">
 
-            <p *ngIf="currentCharacter.aliases != undefined && currentCharacter.aliases.length>0">Aliases
-              <mat-icon class="arrow">forward</mat-icon>
+            <p *ngIf="currentCharacter.aliases != undefined && currentCharacter.aliases.length>0">
 
               <span *ngFor="let item of currentCharacter.aliases;let first = first;let last = last">
                 <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
@@ -104,14 +103,14 @@
 
             </div>
             <div class="card-footer row">
-              <div class="col-md-6">
+              <div class="col-md-6 col-sm-12">
                 <a class="btn flex-container" (click)="goToBackPage()">
-                  <mat-icon>arrow_back_ios</mat-icon>Back
+                  <mat-icon class="icon">arrow_back_ios</mat-icon>Back
                 </a>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 col-sm-12">
                 <a class="btn flex-container" (click)="goToHomePage()">
-                  <mat-icon>home</mat-icon>Go to Home Page
+                  <mat-icon class="icon">home</mat-icon>Home 
                 </a>
               </div>
             </div>

@@ -9,6 +9,15 @@
 
 }
 
+
+@media only screen and (max-width:700px) and (min-width:200px){
+    .gallery img{
+        width:100%;
+        height:300px;
+
+    }
+}
+
 .navbar{
     width:100%;
     margin-top:0px;
@@ -38,21 +47,21 @@
 }
 
 
-/* for all main components */
 
+/* for all main components */
 .row{
     margin: 20px;
 }
 
+/* for home component only */
 .card{
     margin-top: 20px;
-    border-style:groove;
     border-width: 2px;
-    border-color:#ddffff;
-    
+    border-color:#e2f3f3;
+    border-radius:15px;
 }
 
-/* for home component only */
+
 
 .card:hover{
 
@@ -63,15 +72,23 @@
 
 .card-header{
 
-    background-color: #ddffff;
+    background-color: #e2f3f3;
+    border-radius:13px 13px 0px 0px;
+}
+
+.card-footer{
+
+    background-color:white;
+
 }
 
 .btn{
 
-    background-color: #ddffff;
-    border-color:#ddffff;
-    border-style: groove;
+    background-color: #e2f3f3;
+    border-color:#e2f3f3;
     border-width: 2px;
+    border-radius:10px;
+    font-size: 20px;
 
 }
 
@@ -82,14 +99,9 @@
 
 }
 
-.card-footer{
-
-    background-color:white;
-}
-
 .my-pagination   /deep/ .ngx-pagination .current {
 
-    background:#ddffff;
+    background:#e2f3f3;
     color: black;
 
 
@@ -106,4 +118,5 @@
 p{
 
     font-size: 20px;
+    font-family: 'Italiano' , cursive;
 }

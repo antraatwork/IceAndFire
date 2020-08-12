@@ -5,7 +5,16 @@
 
     }
 }
-    
+ 
+
+@media only screen and (max-width:700px) and (min-width:200px){
+    .gallery img{
+        width:100%;
+        height:300px;
+
+    }
+}
+
 .navbar{
     width:100%;
     margin-bottom: 0px;
@@ -33,22 +42,20 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-/* for all main components */
+
 
 .row{
     margin:20px;
 
 }
 
-
-
 /* for character component only */
 
 .card{
     margin-top: 20px;
-    border-style: groove;
     border-width: 2px;
-    border-color: #ddffdd;
+    border-color: #f7ece6;
+    border-radius: 15px;
 }
 
 .card:hover{
@@ -59,7 +66,9 @@
 
 .card-header{
 
-    background-color:#ddffdd;
+    background-color:#f7ece6;
+    border-radius:13px 13px 0px 0px;
+
 }
 
 .card-text{
@@ -76,11 +85,12 @@
 
 .btn{
 
-    background-color: #ddffdd;
-    border-style: groove;
+    background-color: #f7ece6;
     border-width: 2px;
-    border-color: #ddffdd;
-    
+    border-color: #f7ece6;
+    border-radius: 10px;
+    font-size: 20px;
+
 }
 
 .btn:hover{
@@ -95,7 +105,7 @@
 
 .my-pagination   /deep/ .ngx-pagination .current {
 
-    background:#ddffdd;
+    background:#f7ece6;
     color: black;
 
   }
@@ -110,4 +120,6 @@
 
 p{
     font-size: 20px;
+    font-family: 'Italiano' , cursive;
+
 }

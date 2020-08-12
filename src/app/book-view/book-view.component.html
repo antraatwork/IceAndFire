@@ -46,8 +46,7 @@
           <div class="card-header">
             <!-- if the name of the currentBook is not undefined and its length is greater than 0 then Book name is displayed -->
             
-            <p *ngIf="currentBook.name != undefined && currentBook.name.length>0">Name<mat-icon class="arrow">forward
-              </mat-icon>{{currentBook.name | uppercase}}</p>
+            <p *ngIf="currentBook.name != undefined && currentBook.name.length>0">{{currentBook.name | uppercase}}</p>
             <!-- book name is in uppercase -->
           </div>
 
@@ -93,7 +92,7 @@
                 <!-- back button -->
 
                 <a class="btn flex-container" (click)="goToBackPage()">
-                  <mat-icon>arrow_back_ios</mat-icon><b>Back</b>
+                  <mat-icon>arrow_back_ios</mat-icon>Back
                 </a>
 
               </div>
@@ -101,7 +100,7 @@
 
                 <!-- go to homepage button -->
                 <a class="btn flex-container" (click)="goToHomePage()">
-                  <mat-icon>home</mat-icon><b>Go to Home Page</b>
+                  <mat-icon>home</mat-icon>Home
                 </a>
                 
               </div>

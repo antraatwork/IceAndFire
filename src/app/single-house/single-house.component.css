@@ -5,7 +5,14 @@
 
     }
 }
-    
+ 
+@media only screen and (max-width:700px) and (min-width:200px){
+    .gallery img{
+        width:100%;
+        height:300px;
+
+    }
+}
 .navbar{
     width:100%;
     margin-bottom: 0px;
@@ -40,34 +47,44 @@
 /* for single-house component only */
 .card{
     margin-top: 20px;
-    border-style: groove;
     border-width: 2px;
-    border-color: #ffffcc;
+    border-color: #efebf7;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+
+}
+
+.card-header{
+
+    background-color:#efebf7 ;
+    border-radius:13px 13px 0px 0px;
 }
 
 .card:hover{
 
-    box-shadow: 0 4px 8px 0  #ffffcc, 0 6px 20px 0  #ffffcc;
     
+    transform: scale(1.02);
 }
 
 
 .btn{
 
-    background-color: #ffffcc;
-    border-style: groove;
+    background-color: #efebf7;
     border-width: 2px;
-    border-color:  #ffffcc;
+    border-color:  #efebf7;
+    border-radius:10px;
     display: inline-flexbox;
-    font-size:18px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:20px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
 
 }
 
 
 .card:hover{
 
-    box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+    
     transform: scale(1.02);
 
 } 
@@ -75,7 +92,7 @@
 
 .btn:hover{
 
-    box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+    
     transform: scale(1.02);
 
 }
@@ -98,5 +115,17 @@ p{
     
     font-size:20px;
     display: inline-flexbox;
+    font-family: 'Italiano' , cursive;
 
+}
+
+.icon{
+
+    font-size: 27px;
+
+}
+
+.home{
+
+    font-size: 29px;
 }
