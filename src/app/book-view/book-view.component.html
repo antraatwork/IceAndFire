@@ -45,7 +45,7 @@
 
           <div class="card-header">
             <!-- if the name of the currentBook is not undefined and its length is greater than 0 then Book name is displayed -->
-            
+
             <p *ngIf="currentBook.name != undefined && currentBook.name.length>0">{{currentBook.name | uppercase}}</p>
             <!-- book name is in uppercase -->
           </div>
@@ -53,8 +53,8 @@
           <div class="card-body">
             <div class="card-text">
 
-              <p *ngIf="currentBook.authors != undefined && currentBook.authors.length>0">Author<mat-icon
-                  class="arrow">forward</mat-icon>
+              <p *ngIf="currentBook.authors != undefined && currentBook.authors.length>0">Author<mat-icon class="arrow">
+                  forward</mat-icon>
                 <!--to dispay all authors of current Book   -->
                 <span *ngFor="let item of currentBook.authors;let first = first;let last = last">
                   <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
@@ -102,7 +102,7 @@
                 <a class="btn flex-container" (click)="goToHomePage()">
                   <mat-icon>home</mat-icon>Home
                 </a>
-                
+
               </div>
             </div>
           </div>

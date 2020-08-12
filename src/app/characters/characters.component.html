@@ -46,7 +46,7 @@
           <div class="card-header">
 
             <p *ngIf="character.aliases != undefined && character.aliases.length>0">Aliases:
-               <span *ngFor="let item of character.aliases;let first = first;let last = last">
+              <span *ngFor="let item of character.aliases;let first = first;let last = last">
                 <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
 
                 </span>
@@ -66,7 +66,7 @@
 
             </div>
             <div class="card-footer">
-              
+
               <a [routerLink]="['/characterview',character.url]" class="btn ">View</a>
               <!-- View button to view all the details of the specific character -->
             </div>
