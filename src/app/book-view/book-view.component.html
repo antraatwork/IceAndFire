@@ -53,7 +53,7 @@
           <div class="card-body">
             <div class="card-text">
 
-              <p *ngIf="currentBook.authors != undefined && currentBook.authors.length>0">Authors<mat-icon
+              <p *ngIf="currentBook.authors != undefined && currentBook.authors.length>0">Author<mat-icon
                   class="arrow">forward</mat-icon>
                 <!--to dispay all authors of current Book   -->
                 <span *ngFor="let item of currentBook.authors;let first = first;let last = last">
