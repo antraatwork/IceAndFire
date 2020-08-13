@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     console.log("home ngOnit is called");
-    this.allBooks = this.gotHttpService.getAllBooks().subscribe(
+    this.gotHttpService.getAllBooks().subscribe(
       //getAllBooks method in service is subscribed for updates
       //it will upadate whenever there is some change is data and moreover if there is any error then the page not found page appears
       data => {

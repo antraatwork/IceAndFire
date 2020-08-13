@@ -84,7 +84,9 @@
     border-width: 2px;
     border-color:#e2f3f3;;
     border-radius:10px;
-    display: inline-flexbox;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size:20px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -95,12 +97,12 @@
 .arrow{
 
     font-size: 15px;
-
+    padding:2px;
 }
 
 p{
     
-    display: inline-flexbox;
+    
     font-size: 20px;
     font-family: 'Italianno', cursive;
 

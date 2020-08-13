@@ -40,7 +40,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <p *ngIf="currentHouse.name != undefined && currentHouse.name.length>0">{{currentHouse.name}}
+            <p *ngIf="currentHouse.name != undefined && currentHouse.name.length>0">{{currentHouse.name |uppercase}}
 
             </p>
           </div>
@@ -107,17 +107,20 @@
 
             </div>
             <div class="card-footer row">
-              <div class="col-md-6">
+              <div class="col-md-2 col-sm-12">
+                <!-- back button -->
 
-                <a class="btn flex-container" (click)="goToBackPage()">
-                  <mat-icon class="icon">arrow_back_ios</mat-icon>Back
+                <a class="btn " (click)="goToBackPage()">
+                  <mat-icon>arrow_back_ios</mat-icon>Back
                 </a>
 
               </div>
-              <div class="col-md-6">
+              <div class="col-md-8 col-sm-0"></div>
+              <div class="col-md-2 col-sm-12">
 
-                <a class="btn flex-container" (click)="goToHomePage()">
-                  <mat-icon class="icon">home</mat-icon>Home
+                <!-- go to homepage button -->
+                <a class="btn " (click)="goToHomePage()">
+                  <mat-icon>home</mat-icon>Home
                 </a>
 
               </div>

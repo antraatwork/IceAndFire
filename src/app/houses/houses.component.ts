@@ -26,7 +26,7 @@ export class HousesComponent implements OnInit, OnDestroy {
 
     console.log("houses data displayed");
     //getAllHouses method in service is used to get the data fo all houses
-    this.allHouses = this.gotHttpService.getAllHouses().subscribe(
+    this.gotHttpService.getAllHouses().subscribe(
 
       data => { //if request  is succcesful
 

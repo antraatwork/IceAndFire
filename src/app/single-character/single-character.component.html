@@ -45,10 +45,9 @@
             <p *ngIf="currentCharacter.aliases != undefined && currentCharacter.aliases.length>0">
 
               <span *ngFor="let item of currentCharacter.aliases;let first = first;let last = last">
-                <span *ngIf="item ; else elseblock">{{item}}{{last ? ' ' : ' ,'}}
-
+                <span *ngIf="item ; else elseblock">{{item|uppercase}}{{last ? ' ' : ' ,'}}
                 </span>
-                <ng-template #elseblock> -- </ng-template>
+                <ng-template #elseblock>   </ng-template>
               </span>
             </p>
 
@@ -103,15 +102,22 @@
 
             </div>
             <div class="card-footer row">
-              <div class="col-md-6 col-sm-12">
-                <a class="btn flex-container" (click)="goToBackPage()">
-                  <mat-icon class="icon">arrow_back_ios</mat-icon>Back
+              <div class="col-md-2 col-sm-12">
+                <!-- back button -->
+
+                <a class="btn " (click)="goToBackPage()">
+                  <mat-icon>arrow_back_ios</mat-icon>Back
                 </a>
+
               </div>
-              <div class="col-md-6 col-sm-12">
-                <a class="btn flex-container" (click)="goToHomePage()">
-                  <mat-icon class="icon">home</mat-icon>Home
+              <div class="col-md-8 col-sm-0"></div>
+              <div class="col-md-2 col-sm-12">
+
+                <!-- go to homepage button -->
+                <a class="btn " (click)="goToHomePage()">
+                  <mat-icon>home</mat-icon>Home
                 </a>
+
               </div>
             </div>
           </div>

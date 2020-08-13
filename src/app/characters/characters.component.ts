@@ -28,7 +28,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
     console.log("characters ngOnit is called");
     //getAllCharacters method in service is used to get the data of all characters 
 
-    this.allCharacters = this.gotHttpService.getAllCharacters().subscribe(
+    this.gotHttpService.getAllCharacters().subscribe(
 
       data => {
 

@@ -73,7 +73,9 @@
     border-width: 2px;
     border-color:  #efebf7;
     border-radius:10px;
-    display: inline-flexbox;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-size:20px;
     margin-bottom: 20px;
     margin-top:20px;
@@ -102,19 +104,15 @@
 .arrow{
 
     font-size:15px;
+    padding:2px;
 
 }
 
 /* for top most arrow */
-.arr{
-
-    font-size: 15px;
-}
 
 p{
     
     font-size:20px;
-    display: inline-flexbox;
     font-family: 'Italianno', cursive;
 
 }
