@@ -29,7 +29,7 @@ export class SingleCharacterComponent implements OnInit {
 
     let myCharacterId = this._route.snapshot.paramMap.get('url');
     //myCharacterId is the url for data of single Character
-    //getSingleCharcter method od service is used to get the data of single character being viewed by the user
+    //getSingleCharcter method in service is used to get the data of single character being viewed by the user
 
     this.gotHttpService.getSingleCharacter(myCharacterId)
       .subscribe(
